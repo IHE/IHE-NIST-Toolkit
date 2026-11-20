@@ -416,13 +416,35 @@ public class ActorConfigTab extends GenericQueryTab implements NotifyOnDelete {
 			 */
 			if (ActorType.RESPONDING_GATEWAY.equals(actorType)) {
 				actorEditGrid.setWidget(row, 0, new Label("homeCommunityId"));
-
 				TextBox homeBox = new TextBox();
 				homeBox.setWidth(boxwidth);
 				homeBox.setText(trim(currentEditSite.home));
 				homeBox.addChangeHandler(new HomeChangedHandler(this, currentEditSite, homeBox));
 				actorEditGrid.setWidget(row, 1, homeBox);
+				row++;
 
+				actorEditGrid.setWidget(row, 0, new Label("RCVR Device ID A"));
+				TextBox rcvrDeviceIdABox = new TextBox();
+				rcvrDeviceIdABox.setWidth(boxwidth);
+				rcvrDeviceIdABox.setText(trim(currentEditSite.xcpd_rcvr_device_id_a));
+				rcvrDeviceIdABox.addChangeHandler(new DeviceIDAChangedHandler(this, currentEditSite, rcvrDeviceIdABox));
+				actorEditGrid.setWidget(row, 1, rcvrDeviceIdABox);
+				row++;
+
+				actorEditGrid.setWidget(row, 0, new Label("RCVR Device ID B"));
+				TextBox rcvrDeviceIdBBox = new TextBox();
+				rcvrDeviceIdBBox.setWidth(boxwidth);
+				rcvrDeviceIdBBox.setText(trim(currentEditSite.xcpd_rcvr_device_id_b));
+				rcvrDeviceIdBBox.addChangeHandler(new DeviceIDBChangedHandler(this, currentEditSite, rcvrDeviceIdBBox));
+				actorEditGrid.setWidget(row, 1, rcvrDeviceIdBBox);
+				row++;
+
+				actorEditGrid.setWidget(row, 0, new Label("RCVR Device ID C"));
+				TextBox rcvrDeviceIdCBox = new TextBox();
+				rcvrDeviceIdCBox.setWidth(boxwidth);
+				rcvrDeviceIdCBox.setText(trim(currentEditSite.xcpd_rcvr_device_id_c));
+				rcvrDeviceIdCBox.addChangeHandler(new DeviceIDCChangedHandler(this, currentEditSite, rcvrDeviceIdCBox));
+				actorEditGrid.setWidget(row, 1, rcvrDeviceIdCBox);
 				row++;
 			}
 
