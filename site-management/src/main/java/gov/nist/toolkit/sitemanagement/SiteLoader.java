@@ -141,7 +141,21 @@ public abstract class SiteLoader {
 			home_ele.setText(s.home);
 			site_ele.addChild(home_ele);
 		}
-
+		if (s.xcpd_rcvr_device_id_a != null) {
+			OMElement xcpd_rcvr_device_id_a_ele = MetadataSupport.om_factory.createOMElement("xcpd_rcvr_device_id_a", null);
+			xcpd_rcvr_device_id_a_ele.setText(s.xcpd_rcvr_device_id_a);
+			site_ele.addChild(xcpd_rcvr_device_id_a_ele);
+		}
+		if (s.xcpd_rcvr_device_id_b != null) {
+			OMElement xcpd_rcvr_device_id_b_ele = MetadataSupport.om_factory.createOMElement("xcpd_rcvr_device_id_b", null);
+			xcpd_rcvr_device_id_b_ele.setText(s.xcpd_rcvr_device_id_b);
+			site_ele.addChild(xcpd_rcvr_device_id_b_ele);
+		}
+		if (s.xcpd_rcvr_device_id_c != null) {
+			OMElement xcpd_rcvr_device_id_c_ele = MetadataSupport.om_factory.createOMElement("xcpd_rcvr_device_id_c", null);
+			xcpd_rcvr_device_id_c_ele.setText(s.xcpd_rcvr_device_id_c);
+			site_ele.addChild(xcpd_rcvr_device_id_c_ele);
+		}
 		for (TransactionBean tb : trans.transactions) {
 			addTransactionXML(site_ele, tb);
 		}
